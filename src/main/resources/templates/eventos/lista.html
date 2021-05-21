@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Eventos</title>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+
+	<div class="container">
+		<h1>Lista de Eventos</h1>
+
+		<table>
+
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horario</th>
+				</tr>
+			<tbody>
+				<tr th:each="e : ${eventos}">
+					<td th:text="${e.id}">1</td>
+					<td th:text="${e.nome}">Casamento da Maria</td>
+					<td th:text="${e.local}">Hotel Gloria</td>
+					<td th:text="${e.data}">03/07/1999</td>
+					<td th:text="${e.horario}">13:30</td>
+				</tr>
+
+			</tbody>
+
+			</thead>
+
+		</table>
+
+	</div>
+</body>
+</html>
