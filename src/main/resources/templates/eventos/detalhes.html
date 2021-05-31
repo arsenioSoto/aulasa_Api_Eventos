@@ -5,6 +5,7 @@
 <title>Alterar Evento</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -92,6 +93,7 @@
 								<th>Numero do Documento</th>
 								<th>Telefone</th>
 								<th>Email</th>
+								<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -101,6 +103,7 @@
 								<td th:text="${c.bi}">Numero do Documento</td>
 								<td th:text="${c.telefone}">Telefone</td>
 								<td th:text="${c.email}">Email</td>
+								<td title="Clique para Remover"><a th:href="@{/detalhes/{id}/removerConvidado(id=${c.id})}"><i class="material-icons">delete</i></a></td>
 								</tr>
 							</tbody>
 						</table>				

@@ -83,5 +83,50 @@ public class EventosController {
 		return "redirect:/eventos/{idEvento}";
 
 	}
+	
+	@GetMapping("/{id}/remover")
+	public String apagarEvento(@PathVariable Long id) {
+		
+		Optional<Evento> opt = er.findById(id);
+		
+		if (!opt.isEmpty()) {
+			//apagar
+			//exemplo 
+			Evento evento = opt.get();
+			
+		List<Convidado> convidados = cr.findByEvento(evento);
+		
+			cr.deleteAll(convidados);
+			er.delete(evento);
+			
+			
+			//er.delete(opt.get()); mesma Solucao
+		}
+		
+		return "redirect:/eventos";
+	}
+	
+	@GetMapping("/{id}/removerConvidado") 
+	public String apagarConvidado(@PathVariable Long id) {
+		
+		Optional<Convidado> opt = cr.findById(id);
+		
+		if (!opt.isEmpty()) {
+			//apagar
+			//exemplo 
+			Convidado convidado = opt.get();
+			
+		//List<Convidado> convidados = cr.findByEvento(evento);
+		 
+			//cr.deleteAll(convidados);
+			cr.delete(convidado);
+			
+			
+			//er.delete(opt.get()); mesma Solucao
+		}
+		
+		return "redirect:/detalhes";
+	}
+	
 
 }
