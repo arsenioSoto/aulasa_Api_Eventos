@@ -14,23 +14,100 @@
 		<h1>Detalhes do Evento</h1>
 
 		<div class="row">
-    <div class="col s12">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Evento</span>
-    
-          		<p><strong>Codigo:</strong> <span th:text="${evento.id}">12</span></p>
-          		<p><strong>Nome:</strong> <span th:text="${evento.nome}">Casamento</span></p>
-          		<p><strong>Local:</strong> <span th:text="${evento.local}">Hotel Gloraia</span></p>
-          		<p><strong>Data:</strong> <span th:text="${evento.data}">12/12/12</span></p>
-          		<p><strong>Hora:</strong> <span th:text="${evento.horario}">12:12</span></p>
-        
-        </div>
-      </div>
-    </div>
-  </div>
-            
+			<div class="col s12">
+				<div class="card ">
+					<div class="card-content">
+						<span class="card-title">Evento</span>
 
+						<p>
+							<strong>Codigo:</strong> <span th:text="${evento.id}">12</span>
+						</p>
+						<p>
+							<strong>Nome:</strong> <span th:text="${evento.nome}">Casamento</span>
+						</p>
+						<p>
+							<strong>Local:</strong> <span th:text="${evento.local}">Hotel
+								Gloria</span>
+						</p>
+						<p>
+							<strong>Data:</strong> <span th:text="${evento.data}">12/12/12</span>
+						</p>
+						<p>
+							<strong>Hora:</strong> <span th:text="${evento.horario}">12:12</span>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col s12">
+				<div class="card ">
+					<div class="card-content">
+						<span class="card-title">Adicionar convidado</span>
+						<form action="" method="post">
+							<div>
+								<label>Nome:</label><input type="text" name="nome" required="required">
+							</div>
+							
+							<div>
+								<label>BI:</label><input type="number" name="bi" required="required">
+							</div>
+							
+							<div>
+								<label>Telefone:</label><input type="tel" name="telefone" required="required">
+							</div>
+							
+							<div>
+								<label>G-mail:</label><input type="email" name="email">
+							</div>
+							
+							<div>
+							
+								<button type="submit" class="btn">Salvar</button>
+								<button type="reset" class="btn">Limpar</button>
+							
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+			
+			
+		<div class="row">
+			<div class="col s12">
+				<div class="card ">
+					<div class="card-content">
+						<span class="card-title">Lista de Convidados</span>
+						
+						<table class="highlight">
+						
+							<thead>
+								<th>Codigo</th>
+								<th>Nome</th>
+								<th>Numero do Documento</th>
+								<th>Telefone</th>
+								<th>Email</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="c : ${convidados}">
+								<td th:text="${c.id}">Codigo</td>
+								<td th:text="${c.nome}">Nome</td>
+								<td th:text="${c.bi}">Numero do Documento</td>
+								<td th:text="${c.telefone}">Telefone</td>
+								<td th:text="${c.email}">Email</td>
+								</tr>
+							</tbody>
+						</table>				
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
